@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karson Walton | Mechanical Engineer & Software Developer</title>
+    <meta name="description" content="Portfolio of Karson Walton — Mechanical Engineering student at Colorado School of Mines specializing in aerospace, 3D printing, CAD design, and software development.">
+
+    <!-- Typography: Syne (Headings) & Plus Jakarta Sans (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS Styling -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Three.js Core & Loaders -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-mark"></span>
+                <span class="logo-text">KARSON WALTON</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="#workspace-3d" class="nav-link">3D Canvas</a>
+                <a href="#work" class="nav-link">Projects</a>
+                <a href="#about" class="nav-link">Skills</a>
+                <a href="#resume-footer" class="nav-link">Resume</a>
+                <a href="#contact-info" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-text-content gsap-reveal">
+                    <div class="csm-badge">
+                        <div class="csm-logo-container">
+                            <img src="assets/images/csm-logo.jpg" alt="Colorado School of Mines Logo" class="csm-logo-img">
+                        </div>
+                        <span class="csm-text">Colorado School of Mines • Golden, CO</span>
+                    </div>
+
+                    <h1 class="hero-title">Karson Walton</h1>
+                    <p class="hero-subtitle">Mechanical Engineering Student</p>
+
+                    <p class="hero-description">
+                        Focusing on mechanical engineering, aerospace, 3D printing, CAD design, all with a passion for innovation.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#work" class="btn btn-primary">
+                            <span>View Projects</span>
+                            <i data-lucide="arrow-down"></i>
+                        </a>
+                        <a href="#resume-footer" class="btn btn-tertiary">
+                            <span>Download Resume</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image-wrapper gsap-reveal">
+                    <div class="profile-frame">
+                        <img src="assets/images/profile.jpg" alt="Karson Walton" class="profile-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 3D Workspace Section -->
+        <section id="workspace-3d" class="workspace-section">
+            <div class="container section-header gsap-reveal">
+                <div class="section-badge">
+                    <i data-lucide="box"></i>
+                    <span>Interactive Workspace</span>
+                </div>
+                <h2 class="section-title">3D Interactive Models</h2>
+            </div>
+
+            <div class="container gsap-reveal">
+                <div class="canvas-wrapper">
+                    <div class="model-nametag" id="model-nametag">
+                        <span class="nametag-title" id="nametag-title">01 / Rocket Assembly</span>
+                        <span class="nametag-sub" id="nametag-sub">High-Power Rocketry System</span>
+                    </div>
+
+                    <canvas id="three-canvas"></canvas>
+                    
+                    <div class="model-selector">
+                        <button class="model-btn active" data-model="0">Rocket Assembly</button>
+                        <button class="model-btn" data-model="1">Collapsible Box</button>
+                        <button class="model-btn" data-model="2">Arduino Box</button>
+                    </div>
+
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="full">Full Assembly</button>
+                        <button class="view-btn" data-view="exploded">Exploded View</button>
+                    </div>
+
+                    <div class="canvas-controls-overlay">
+                        <div class="control-hint">
+                            <i data-lucide="move"></i>
+                            <span>Drag to rotate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Showcase Section -->
+<section id="work" class="work-section">
+    <div class="container">
+        <div class="section-header gsap-reveal">
+            <div class="section-badge">
+                <i data-lucide="layers"></i>
+                <span>Portfolio</span>
+            </div>
+            <h2 class="section-title">Projects</h2>
+        </div>
+
+        <div class="projects-grid gsap-reveal">
+
+            <!-- Collapsible Shipping Box -->
+            <div class="project-card">
+                <div class="project-media-container">
+                    <img src="assets/images/project4.jpg" alt="Reusable Collapsible Shipping Box" class="project-image" onerror="this.style.display='none'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Collapsible Shipping Box</h3>
+                    <p class="project-description">
+                        Designed for the Design I Cornerstone course at Colorado School of Mines. Features a 3D-printed mechanism that allows the structure to fold down when empty, reducing storage volume and return transport overhead.
+                    </p>
+                    <a href="#" class="project-link">Project Overview <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Mycelium Biomass Proposal -->
+            <div class="project-card">
+                <div class="project-media-container">
+                    <img src="assets/images/project1.jpg" alt="Bio-Fabricated Mycelium Research" class="project-image" onerror="this.style.display='none'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Mycelium Biomass Waste Research</h3>
+                    <p class="project-description">
+                        Researched fungal mycelium applications as a sustainable material for local biomass waste management. Formulated and presented policy/implementation proposals to the Jefferson County Fire Department and local officials during the Innov8x Challenge.
+                    </p>
+                    <a href="#" class="project-link">Project Overview <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- L1 & L2 Rocket -->
+            <div class="project-card">
+                <div class="project-media-container">
+                    <img src="assets/images/project3.jpeg" alt="L1 & L2 Rocket" class="project-image" onerror="this.style.display='none'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">L1/L2 High-Power Rocket ("Starry Night")</h3>
+                    <p class="project-description">
+                        Designed and simulated using OpenRocket. Constructed and flown to successfully achieve Tripoli Level 1 and Level 2 high-power rocketry certifications on back-to-back flights.
+                    </p>
+                    <a href="#" class="project-link">Project Overview <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- "JEFF" Rocket -->
+            <div class="project-card">
+                <div class="project-media-container">
+                    <img src="assets/images/project2.jpeg" alt="'JEFF' High-Power Rocket" class="project-image" onerror="this.style.display='none'">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">"JEFF" High-Power Rocket</h3>
+                    <p class="project-description">
+                        Engineered for supersonic flight targeting ~10,000 ft on a K-motor. Features dual-deployment parachute recovery, a modular altimeter payload bay, and an onboard camera mount.
+                    </p>
+                    <a href="#" class="project-link">Project Overview <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+        <!-- Skill & Capability Breakdown Section -->
+        <section id="about" class="about-section">
+            <div class="container about-grid">
+                <div class="about-intro gsap-reveal">
+                    <div class="section-badge">
+                        <i data-lucide="cpu"></i>
+                        <span>Background</span>
+                    </div>
+                    <h2 class="section-title">Technical Skills & Experience</h2>
+                </div>
+                <div class="capabilities-list gsap-reveal">
+                    <div class="capability-item">
+                        <span class="capability-number">01</span>
+                        <div class="capability-details">
+                            <h4>CAD & Machining</h4>
+                            <p>4+ years Onshape, 1 year SolidWorks (CSWA certified), Fusion 360, 3D printing, CNC machining, laser cutting, and precision assembly.</p>
+                        </div>
+                    </div>
+                    <div class="capability-item">
+                        <span class="capability-number">02</span>
+                        <div class="capability-details">
+                            <h4>Programming & Tools</h4>
+                            <p>Python, C++, Node.js, Git, VSCode, Supabase, Google Places API, Leaflet, and data analysis in Excel/Google Sheets.</p>
+                        </div>
+                    </div>
+                    <div class="capability-item">
+                        <span class="capability-number">03</span>
+                        <div class="capability-details">
+                            <h4>Education & Achievements</h4>
+                            <p>Colorado School of Mines (Mechanical Engineering), L2 Certified High-Power Rocketry, 2nd Place Innov8x Biomass Challenge winner, and former FRC Team Captain.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer / Resume & Contact Section -->
+    <footer id="resume-footer" class="footer-section">
+        <div class="container">
+            <div class="resume-card gsap-reveal">
+                <div class="resume-info">
+                    <div class="section-badge light">
+                        <i data-lucide="file-text"></i>
+                        <span>Resume</span>
+                    </div>
+                    <h3 class="resume-title">Resume</h3>
+                    <p class="resume-text">
+                        View my resume directly in the embedded viewer, or download a copy to your device.
+                    </p>
+                    <div class="resume-actions">
+                        <a href="assets/resume.pdf" download="Karson_Walton_Resume.pdf" class="btn btn-accent">
+                            <i data-lucide="download"></i>
+                            <span>Download Resume (PDF)</span>
+                        </a>
+                        <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-tertiary-light">
+                            <i data-lucide="external-link"></i>
+                            <span>Open in Full Tab</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="resume-preview-container">
+                    <object data="assets/resume.pdf#toolbar=0&navpanes=0&scrollbar=1" type="application/pdf" class="resume-pdf-viewer">
+                        <iframe src="assets/resume.pdf#toolbar=0" class="resume-pdf-viewer">
+                            <div class="pdf-fallback">
+                                <p>Your browser does not support inline PDF viewing.</p>
+                                <a href="assets/resume.pdf" target="_blank" class="btn btn-accent">View PDF Directly</a>
+                            </div>
+                        </iframe>
+                    </object>
+                </div>
+            </div>
+
+            <div id="contact-info" class="footer-bottom">
+                <div class="footer-brand">
+                    <a href="#hero" class="nav-logo">
+                        <span class="logo-mark"></span>
+                        <span class="logo-text">KARSON WALTON</span>
+                    </a>
+                    <p class="brand-tagline">Mechanical Engineering</p>
+                </div>
+
+                <div class="footer-socials">
+                    <a href="tel:+15624463487" class="social-link" aria-label="Phone Contact">
+                        <i data-lucide="phone"></i>
+                        <span>+1 (562) 446-3487</span>
+                    </a>
+                    <a href="mailto:westall.karson@gmail.com" class="social-link" aria-label="Email Contact">
+                        <i data-lucide="mail"></i>
+                        <span>westall.karson@gmail.com</span>
+                    </a>
+                    <a href="https://github.com/KarsonWalton" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub Profile">
+                        <i data-lucide="github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/karson-walton" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn Profile">
+                        <i data-lucide="linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal Overlay -->
+<div id="project-modal" class="project-modal-overlay" aria-hidden="true">
+    <div class="project-modal-container">
+        <button id="modal-close" class="modal-close-btn" aria-label="Close Project">
+            <i data-lucide="x"></i>
+        </button>
+
+        <div class="modal-scroll-area">
+            <div class="modal-media-header">
+                <img id="modal-hero-image" src="" alt="Project Hero">
+            </div>
+            
+            <div class="modal-body-content">
+                <div class="section-badge modal-badge">
+                    <i data-lucide="info"></i>
+                    <span>Project Overview</span>
+                </div>
+                <h2 id="modal-title" class="modal-title"></h2>
+                <div id="modal-long-description" class="modal-text-prose"></div>
+            </div>
+        </div>
+
+        <div class="modal-navigation">
+            <button id="modal-prev" class="modal-nav-btn">
+                <i data-lucide="arrow-left"></i>
+                <span id="prev-project-label">Previous</span>
+            </button>
+            <button id="modal-next" class="modal-nav-btn">
+                <span id="next-project-label">Next</span>
+                <i data-lucide="arrow-right"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
